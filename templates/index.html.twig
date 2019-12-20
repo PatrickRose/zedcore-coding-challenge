@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zedcore Coding Challenge</title>
+    <link rel="stylesheet" href="/vendor/twbs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Challenge</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="challenge">Threshold (days)</label>
+							<div class="input-group">
+								<input class="form-control" name="challenge" type="number"/>
+								<div class="input-group-append">
+									<button type="submit" class="btn btn-primary">Submit form</button>
+								</div>
+							</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-header known-header">
+                    Known answers
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for item in display.Known %}
+                        <li class="list-group-item list-group-item-action">
+                            <a href="/?challenge={{ item }}">{{ item }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+	{{ display.ShowResult|raw }}
+</div>
+</body>
+</html>
