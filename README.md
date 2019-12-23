@@ -2,8 +2,10 @@
 
 This is the code for the Zedcore Coding interview challenge.
  
-It contains a simple "Report" that for employers and a field for what the 
-threshold should be.
+It contains a simple "Report". For the four employers, they each have a date
+that they began an audit of their staff and a date that they finished. The 
+report has a single input which is the number of days they should have
+completed their audit within.
 
 It is partially implemented. The following is not implemented:
 
@@ -46,4 +48,5 @@ You can then visit the page by going to `localhost:8000` in your browser.
 2. Implement `Employer::ThresholdClass`
 3. Implement `Employer::MeetsThreshold`
 4. Display the number of days between the start and stop in the table
-5. Display the percentage of employers that meet the threshold
+5. Display the number of days that the employer missed the threshold by 
+6. Display the percentage of employers that meet the threshold
