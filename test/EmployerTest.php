@@ -60,7 +60,7 @@ class EmployerTest extends TestCase
 				'2019-10-01',
 				'2019-10-01',
 				10,
-				'badge-success'
+				true
 			],
 		];
 	}
