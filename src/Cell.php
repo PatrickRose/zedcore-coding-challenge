@@ -5,27 +5,55 @@ namespace Zedcore;
 class Cell
 {
 	/**
+	 * The cell value
 	 * @var string
 	 */
 	private $sValue;
+
 	/**
+	 * Whether this cell should be a heading or not.
 	 * @var bool
 	 */
-	private $bIsRaw;
+	private $bHeading;
 
-	public function __construct(string $sValue, bool $bIsRaw = false)
+	/**
+	 * Whether the value contains HTML or is plain-text.
+	 * @var bool
+	 */
+	private $bHTML;
+
+	public function __construct(string $sValue, bool $bHeading = false, $bHTML=false)
 	{
 		$this->sValue = $sValue;
-		$this->bIsRaw = $bIsRaw;
+		$this->bHeading = $bHeading;
+		$this->bHTML = $bHTML;
 	}
 
-	public function IsRaw(): bool
+	/**
+	 * Test used in twig template
+	 * @return bool
+	 */
+	public function IsHeading(): bool
 	{
-		return $this->bIsRaw;
+		return $this->bHeading;
 	}
 
+	/**
+	 * Test used in twig template
+	 * @return bool
+	 */
+	public function IsHTML(): bool
+	{
+		return $this->bHTML;
+	}
+
+	/**
+	 * Value displayed by twig template
+	 * @return bool
+	 */
 	public function __toString()
 	{
 		return $this->sValue;
 	}
+
 }

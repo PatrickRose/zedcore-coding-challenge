@@ -8,6 +8,6 @@ $oTwig = new \Twig\Environment($oLoader);
 echo $oTwig->render(
 	'index.html.twig',
 	[
-		'display' => new Zedcore\Display($oTwig)
+		'report' => new Zedcore\Report($oTwig)
 	]
 );
