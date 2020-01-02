@@ -8,74 +8,106 @@ class Employer
 	 * @var string
 	 */
 	private $sEmployerName;
+
 	/**
 	 * @var \DateTimeImmutable
 	 */
-	private $sStart;
+	private $dtStartDate;
+
 	/**
 	 * @var \DateTimeImmutable
 	 */
-	private $sEnd;
+	private $dtEndDate;
+
 	/**
 	 * @var int
 	 */
-	private $iThreshold;
+	private $iTarget;
 
-	public function __construct(string $sEmployerName, string $sStart, string $sEnd, int $iThreshold)
+	/**
+	 * Employer constructor, each object represents a row in the report
+	 *
+	 * @param string $sEmployerName
+	 * @param string $sStartDate
+	 * @param string $sEndDate
+	 */
+	public function __construct(string $sEmployerName, string $sStartDate, string $sEndDate)
 	{
 		$this->sEmployerName = $sEmployerName;
-		$this->sStart = $sStart;
-		$this->sEnd = $sEnd;
-		$this->iThreshold = $iThreshold;
+		$this->dtStartDate = new \DateTimeImmutable($sStartDate);
+		$this->dtEndDate = new \DateTimeImmutable($sEndDate);
 	}
 
 	/**
-	 * This should return false if the number of days between the start and stop time is greater than the threshold
+	 * Sets the current KPI target
+	 * @param int $iTarget
+	 */
+	public function SetTarget(int $iTarget)
+	{
+		$this->iTarget = $iTarget;
+	}
+
+	/**
+	 * This should return false if the number of days between the start and stop time is greater than the target
 	 *
 	 * @return bool
 	 */
-	private function MeetsThreshold(): bool
+	public function MeetsTarget(): bool
 	{
-		return false;
+		return false; // TODO
 	}
 
 	/**
 	 * This should return one of the following:
 	 *
-	 * * "badge-success" if the days between the start and stop time is less than the threshold
-	 * * "badge-warning" if the days between the start and stop time is less than the threshold + 50%
-	 * * "badge-danger" if the days between the start and stop time is greater than the threshold + 50%
+	 * * "badge-success" if the days between the start and stop time is less than the target
+	 * * "badge-warning" if the days between the start and stop time is less than the target + 50%
+	 * * "badge-danger" if the days between the start and stop time is greater than the target + 50%
 	 *
 	 * @return string
 	 */
-	private function ThresholdClass(): string
+	public function KPIStyle(): string
 	{
-		return '';
+		return ''; // TODO
 	}
 
-	public function ThresholdIsMet(): Cell
+	/**
+	 * Display whether the target is met, as a table cell
+	 * @return Cell
+	 */
+	public function Cell_IsTargetMet(): Cell
 	{
-		$sThreshold = $this->MeetsThreshold() ? 'Yes' : 'No';
-		$sThresholdClass = $this->ThresholdClass();
+		$sMeetsTarget = $this->MeetsTarget() ? 'Yes' : 'No';
+		$sKPIStyle = $this->KPIStyle();
 
-		return new Cell("<td><span class=\"badge $sThresholdClass\">$sThreshold</span></td>", true);
+		return new Cell("<span class=\"badge $sKPIStyle\">$sMeetsTarget</span>", false, true);
 	}
 
-	public function GetName(): Cell
+	/**
+	 * The employer name as a table cell
+	 * @return Cell
+	 */
+	public function Cell_Name(): Cell
 	{
-		return new Cell('<th scope="row">' . $this->sEmployerName . '</th>', true);
+		return new Cell($this->sEmployerName, true);
 	}
 
-	public function GetStartTime(): Cell
+	/**
+	 * Get the start date as a table cell
+	 * @return Cell
+	 */
+	public function Cell_StartDate(): Cell
 	{
-		// This should display the start time in the format like "Monday, 1st January 2019"
-		return new Cell($this->sStart);
+		return new Cell($this->dtStartDate->format('c'));
 	}
 
-	public function GetStopTime(): Cell
+	/**
+	 * Get the stop date as a table cell
+	 * @return Cell
+	 */
+	public function Cell_StopDate(): Cell
 	{
-		// This should display the stop time in the format like "Monday, 1st January 2019"
-		return new Cell($this->sEnd);
+		return new Cell($this->dtEndDate->format('c'));
 	}
 
 }

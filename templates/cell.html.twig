@@ -1,0 +1,17 @@
+{% if cell.IsHeading %}
+    <th scope="row">
+{% else %}
+    <td>
+{% endif %}
+
+    {% if cell.IsHTML %}
+        {{ cell|raw }}
+    {% else %}
+        {{ cell }}
+    {% endif %}
+
+{% if cell.IsHeading %}
+    </th>
+{% else %}
+    </td>
+{% endif %}

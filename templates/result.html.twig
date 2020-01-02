@@ -1,27 +1,24 @@
 <div class="row">
     <div class="col-12">
-        <h2>Result</h2>
-        <p>Provided input was <code>{{ input }}</code></p>
+        <h2>Report</h2>
+        <p>
+            The KPI target was <code>{{ input }}</code>
+        </p>
         <table class="table table-striped">
             <thead>
-            {% for key in display.TableHeaders|keys %}
-                <th>{{ key }}</th>
-            {% endfor %}
+                {% for key in display.TableColumns|keys %}
+                    <th>{{ key }}</th>
+                {% endfor %}
             </thead>
             <tbody>
-            {% for row in display.CalculateRow %}
-                <tr>
-                    {% for value in row %}
-                        {% if value.IsRaw %}
-                            {{ value|raw }}
-                        {% else %}
-                            <td>{{ value }}</td>
-                        {% endif %}
-                    {% endfor %}
-                </tr>
-            {% endfor %}
+                {% for row in display.CalculateRows %}
+                    <tr>
+                        {% for cell in row %}
+                            {% include 'cell.html.twig' with {'cell': cell} %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
-
     </div>
 </div>
