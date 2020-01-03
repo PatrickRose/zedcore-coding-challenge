@@ -10,14 +10,14 @@ class Employer
 	private $sEmployerName;
 
 	/**
-	 * @var \DateTimeImmutable
+	 * @var string
 	 */
-	private $dtStartDate;
+	private $sStartDate;
 
 	/**
-	 * @var \DateTimeImmutable
+	 * @var string
 	 */
-	private $dtEndDate;
+	private $sEndDate;
 
 	/**
 	 * @var int
@@ -34,8 +34,8 @@ class Employer
 	public function __construct(string $sEmployerName, string $sStartDate, string $sEndDate)
 	{
 		$this->sEmployerName = $sEmployerName;
-		$this->dtStartDate = new \DateTimeImmutable($sStartDate);
-		$this->dtEndDate = new \DateTimeImmutable($sEndDate);
+		$this->sStartDate = $sStartDate;
+		$this->sEndDate = $sEndDate;
 	}
 
 	/**
@@ -98,7 +98,7 @@ class Employer
 	 */
 	public function Cell_StartDate(): Cell
 	{
-		return new Cell($this->dtStartDate->format('c'));
+		return new Cell($this->sStartDate);
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Employer
 	 */
 	public function Cell_StopDate(): Cell
 	{
-		return new Cell($this->dtEndDate->format('c'));
+		return new Cell($this->sEndDate);
 	}
 
 }

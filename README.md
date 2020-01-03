@@ -69,4 +69,4 @@ You can then visit the page by going to [`localhost:8000`](localhost:8000) in yo
 
 In addition to testing the web interface, there are some unit tests in `test/EmployerTest.php` to test that `MeetsTarget()` and `KPIStyle()` do the right things.
 
-You can run those with `./vendor/phpunit/phpunit/phpunit test/EmployerTest.php`
+You can run those with `./vendor/bin/phpunit test/EmployerTest.php`
