@@ -15,8 +15,7 @@ class EmployerTest extends TestCase
 	 */
 	public function test_MeetsTarget(string $sStartDate, string $sEndDate, int $iTarget, bool $bExpected)
 	{
-		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate);
-		$oEmployer->SetTarget($iTarget);
+		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate, $iTarget);
 		$this->assertEquals($bExpected, $oEmployer->MeetsTarget());
 	}
 
@@ -30,8 +29,7 @@ class EmployerTest extends TestCase
 	 */
 	public function test_KPIStyle(string $sStartDate, string $sEndDate, int $iTarget, string $sExpected)
 	{
-		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate);
-		$oEmployer->SetTarget($iTarget);
+		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate, $iTarget);
 		$this->assertEquals($sExpected, $oEmployer->KPIStyle());
 	}
 

@@ -90,7 +90,6 @@ class Report
 
 		foreach ($this->GetEmployers() as $oEmployer)
 		{
-			$oEmployer->SetTarget($_GET['target']);
 			$aRows[] = array_map(function($sFunction) use ($oEmployer): Cell { return $oEmployer->$sFunction(); }, $this->TableColumns());
 		}
 
@@ -107,11 +106,12 @@ class Report
 	 */
 	public static function GetEmployers(): array
 	{
+		$iTarget = $_GET['target'];
 		return [
-			new Employer('First employer', '2019-07-04', '2019-07-10'),
-			new Employer('Second employer', '2019-06-04', '2019-07-10'),
-			new Employer('Third employer', '2019-08-04',  '2019-08-16'),
-			new Employer('Fourth employer', '2019-08-04', '2019-09-04')
+			new Employer('First employer', '2019-07-04', '2019-07-10', $iTarget),
+			new Employer('Second employer', '2019-06-04', '2019-07-10', $iTarget),
+			new Employer('Third employer', '2019-08-04',  '2019-08-16', $iTarget),
+			new Employer('Fourth employer', '2019-08-04', '2019-09-04', $iTarget)
 		];
 	}
 
