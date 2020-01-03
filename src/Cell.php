@@ -49,9 +49,9 @@ class Cell
 
 	/**
 	 * Value displayed by twig template
-	 * @return bool
+	 * @return string
 	 */
-	public function __toString()
+	public function __toString(): string
 	{
 		return $this->sValue;
 	}

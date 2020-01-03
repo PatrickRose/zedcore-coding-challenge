@@ -30,21 +30,14 @@ class Employer
 	 * @param string $sEmployerName
 	 * @param string $sStartDate
 	 * @param string $sEndDate
+	 * @param int $iKPITarget
 	 */
-	public function __construct(string $sEmployerName, string $sStartDate, string $sEndDate)
+	public function __construct(string $sEmployerName, string $sStartDate, string $sEndDate, int $iKPITarget)
 	{
 		$this->sEmployerName = $sEmployerName;
 		$this->sStartDate = $sStartDate;
 		$this->sEndDate = $sEndDate;
-	}
-
-	/**
-	 * Sets the current KPI target
-	 * @param int $iTarget
-	 */
-	public function SetTarget(int $iTarget)
-	{
-		$this->iTarget = $iTarget;
+		$this->iTarget = $iKPITarget;
 	}
 
 	/**

@@ -15,8 +15,7 @@ class EmployerTest extends TestCase
 	 */
 	public function test_MeetsTarget(string $sStartDate, string $sEndDate, int $iTarget, bool $bExpected)
 	{
-		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate);
-		$oEmployer->SetTarget($iTarget);
+		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate, $iTarget);
 		$this->assertEquals($bExpected, $oEmployer->MeetsTarget());
 	}
 
@@ -30,30 +29,29 @@ class EmployerTest extends TestCase
 	 */
 	public function test_KPIStyle(string $sStartDate, string $sEndDate, int $iTarget, string $sExpected)
 	{
-		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate);
-		$oEmployer->SetTarget($iTarget);
+		$oEmployer = new Employer("Test employer", $sStartDate, $sEndDate, $iTarget);
 		$this->assertEquals($sExpected, $oEmployer->KPIStyle());
 	}
 
 	public static function provider_MeetsTarget(): array
 	{
 		return [
-			'On target' => [
+			'Exactly on target' => [
+				'2019-10-01',
+				'2019-10-11',
+				10,
+				true
+			],
+			'Under target by 1 day' => [
 				'2019-10-01',
 				'2019-10-10',
 				10,
 				true
 			],
-			'Under target' => [
+			'Over target by 1 day' => [
 				'2019-10-01',
-				'2019-10-9',
+				'2019-10-12',
 				10,
-				true
-			],
-			'Over target' => [
-				'2019-10-01',
-				'2019-10-10',
-				9,
 				false
 			],
 			'Edge-case, zero days between dates...' => [
@@ -68,39 +66,39 @@ class EmployerTest extends TestCase
 	public static function provider_KPIStyle(): array
 	{
 		return [
-			'On target' => [
+			'Exactly on target' => [
 				'2019-10-01',
-				'2019-10-10',
+				'2019-10-11',
 				10,
 				'badge-success'
 			],
 			'Under target' => [
 				'2019-10-01',
-				'2019-10-09',
+				'2019-10-10',
 				10,
 				'badge-success'
 			],
 			'Over target by 1 day' => [
 				'2019-10-01',
-				'2019-10-11',
+				'2019-10-12',
 				10,
 				'badge-warning'
 			],
 			'Over target by 50% - 1 day' => [
 				'2019-10-01',
-				'2019-10-14',
+				'2019-10-15',
 				10,
 				'badge-warning'
 			],
 			'Over target by 50%' => [
 				'2019-10-01',
-				'2019-10-15',
+				'2019-10-16',
 				10,
 				'badge-warning'
 			],
 			'Over target by 50% + 1 day' => [
 				'2019-10-01',
-				'2019-10-16',
+				'2019-10-17',
 				10,
 				'badge-danger'
 			],
