@@ -144,6 +144,42 @@ class EmployerTest extends TestCase
 				10,
 				'badge-success'
 			],
+			'Edge-case passes over UK GMT boundary' => [
+				'2019-03-25',
+				'2019-04-04',
+				10,
+				'badge-success'
+			],
+			'Edge-case starts at UK GMT boundary' => [
+				'2019-03-31',
+				'2019-04-01',
+				1,
+				'badge-success'
+			],
+			'Edge-case ends at UK GMT boundary' => [
+				'2019-03-30',
+				'2019-03-31',
+				1,
+				'badge-success'
+			],
+			'Edge-case passes over UK BST boundary' => [
+				'2019-10-20',
+				'2019-10-30',
+				10,
+				'badge-success'
+			],
+			'Edge-case starts at UK BST boundary' => [
+				'2019-10-28',
+				'2019-10-29',
+				1,
+				'badge-success'
+			],
+			'Edge-case ends at UK BST boundary' => [
+				'2019-10-27',
+				'2019-10-28',
+				1,
+				'badge-success'
+			],
 		];
 	}
 
