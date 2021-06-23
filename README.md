@@ -65,8 +65,25 @@ This project requires PHP 7.3 and [Composer](https://getcomposer.org/).
 
 You can then visit the page by going to [`localhost:8000`](localhost:8000) in your browser.
 
-### Testing
+## Unit tests
 
-In addition to testing the web interface, there are some unit tests in `test/EmployerTest.php` to test that `MeetsTarget()` and `KPIStyle()` do the right things.
+There are some automated unit tests in `test/EmployerTest.php` which use phpunit to check that the
+`MeetsTarget()` and `KPIStyle()` functions are implemented correctly.
 
-You can run those with `./vendor/bin/phpunit test/EmployerTest.php`
+**These unit tests *must* pass for your submission to be considered.**
+
+You can run these unit tests with `./vendor/bin/phpunit`
+
+PHPUnit will output a report, which should end with the following highlighted in green:
+```
+OK (XX tests, YY assertions)
+```
+
+If there are any failures then PHPUnit will end the report with the follwing highlighted in red:
+```
+FAILURES!
+Tests: XX, Assertions: YY, Failures: ZZ.
+```
+
+Each failure will be reported with an explanation of which test failed, what the expected value was,
+and what value your code actually produced.
