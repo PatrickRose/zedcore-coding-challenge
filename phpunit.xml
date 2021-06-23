@@ -4,5 +4,9 @@
 	colors="true"
 	cacheResult="false"
 >
-
+    <testsuites>
+        <testsuite name="unit">
+            <directory>test</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

@@ -72,7 +72,7 @@ There are some automated unit tests in `test/EmployerTest.php` which use phpunit
 
 **These unit tests *must* pass for your submission to be considered.**
 
-You can run these unit tests with `./vendor/bin/phpunit test/EmployerTest.php`
+You can run these unit tests with `./vendor/bin/phpunit`
 
 PHPUnit will output a report, which should end with the following highlighted in green:
 ```
@@ -87,4 +87,3 @@ Tests: XX, Assertions: YY, Failures: ZZ.
 
 Each failure will be reported with an explanation of which test failed, what the expected value was,
 and what value your code actually produced.
-
