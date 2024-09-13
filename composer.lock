@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbdddf98ec02374cd573d76e6e2ea7bb",
+    "content-hash": "28faf7946bf90d542e1208032366e36b",
     "packages": [
         {
             "name": "symfony/deprecation-contracts",
@@ -390,27 +390,22 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v4.4.1",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb"
+                "reference": "bf0936748602c8109fd916c64b4560799fa1c3f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb",
-                "reference": "dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/bf0936748602c8109fd916c64b4560799fa1c3f8",
+                "reference": "bf0936748602c8109fd916c64b4560799fa1c3f8",
                 "shasum": ""
             },
             "replace": {
                 "twitter/bootstrap": "self.version"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3.x-dev"
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -437,7 +432,17 @@
                 "sass",
                 "web"
             ],
-            "time": "2019-11-28T12:59:49+00:00"
+            "support": {
+                "issues": "https://github.com/twbs/bootstrap/issues",
+                "source": "https://github.com/twbs/bootstrap/tree/v5.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/bootstrap",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2021-05-05T19:32:12+00:00"
         },
         {
             "name": "twig/twig",
