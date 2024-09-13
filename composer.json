@@ -9,7 +9,7 @@
   },
   "require": {
     "twig/twig": "^3.0",
-    "twbs/bootstrap": "^4.4"
+    "twbs/bootstrap": "^5.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.5"
